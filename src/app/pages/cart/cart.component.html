@@ -1,0 +1,20 @@
+<div class="cartContianer">
+   <div class="cartDesc">
+    <h2 *ngIf ="service.cartSize === 0;else elseBlock">Your Cart is Empty</h2>
+    <ng-template #elseBlock>Items Count - {{ this.service.cartSize}}</ng-template>
+   </div>
+        <div class="product" *ngFor = "let p of yourCart; let i = index">
+            <div class="productImage">
+             <img src= "{{  p.foodImg }}" alt="product1">
+            </div> 
+            <div class="productDetails">
+             <h1>{{ p.foodName }}</h1>
+             <h4>{{ p.foodDetails }}</h4>
+             <h3>₹ {{ p.foodPrice }}</h3>
+         </div>
+         <div class="removeFromCart">
+            <button class="removeBtn" (click) = "RemoveFromCart( i )">DELETE</button>
+        </div>
+         </div>
+    
+</div>

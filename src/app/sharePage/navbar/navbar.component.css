@@ -1,0 +1,30 @@
+.headerContainer{
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 15px;
+    background-color: bisque;
+    height: 70px;
+}
+
+.headerTitle > h1{
+    font-family: cursive;
+    font-size: 50px;
+    margin-bottom: 30px;
+}
+
+.headerTitle > p{
+    color: green;
+    font-size: 20px;
+    line-height: 0.1;
+}
+
+.cartSection{
+    display: flex;
+    margin: 20px;
+    width: 60px;
+    justify-content: space-between;
+}
+
+.cartIcon{
+    cursor: pointer;
+}

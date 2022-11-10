@@ -1,0 +1,15 @@
+<div class="productsContainer">
+    <div class="product" *ngFor = "let p of foodData;let i = index">
+       <div class="productImage">
+        <img src= "{{  p.foodImg }}" alt="product1">
+       </div> 
+       <div class="productDetails">
+        <h1>{{ p.foodName }}</h1>
+        <h4>{{ p.foodDetails }}</h4>
+        <h3>₹ {{ p.foodPrice }}</h3>
+        <div class="addToCart">
+            <button class="addBtn" (click) = "AddToCart( p.id,i )">ADD TO CART</button>
+        </div>
+    </div>
+    </div>
+</div>

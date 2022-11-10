@@ -1,0 +1,11 @@
+.cartDesc{
+    margin: 20px;
+}
+
+.removeBtn{
+    border: 0px;
+    border-radius: 5px;
+    height: 30px;
+    background-color: lightgreen;
+    cursor: pointer;
+}
