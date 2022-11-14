@@ -10,6 +10,11 @@ export class CartComponent implements OnInit {
 
   constructor(public service: CartstoreService) { }
   yourCart : any = [];
+
+   //for pagination
+   totalRecords: number = 0;
+   page: number = 1;
+
   RemoveFromCart(ind: number){
      this.service.cartData.splice(ind, 1);
      this.service.cartSize = this.yourCart.length;
@@ -17,6 +22,7 @@ export class CartComponent implements OnInit {
   ngOnInit(): void {
     this.yourCart = this.service.cartData;
     console.log(this.yourCart);
+    this.totalRecords = this.yourCart.length;
     
   }
 }

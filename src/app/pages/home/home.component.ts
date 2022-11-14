@@ -9,7 +9,7 @@ import { OrderDetailsService } from 'src/app/services/order-details.service';
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private service1: OrderDetailsService, private service2: CartstoreService) { }
+  constructor(public service1: OrderDetailsService, private service2: CartstoreService) { }
   foodData: any;
   cartSize: number = 0;
   isModelOpen: boolean = false;

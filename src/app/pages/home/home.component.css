@@ -16,6 +16,7 @@ img{
     -webkit-clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
   clip-path: polygon(5% 0, 100% 0, 100% 100%, 0 100%, 0 100%);
   border-radius: 20px;
+  
 }
 .productDetails{
     padding: 20px;
