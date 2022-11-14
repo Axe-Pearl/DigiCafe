@@ -4,7 +4,9 @@
    <p>Food to Fix the Bugs</p>
   </div>
   <div class="cartSection">
-      <h2 routerLink = "cart" class="cartIcon">Cart</h2>
-      <h2>{{ service.cartSize }}</h2>
+       <mat-icon  routerLink = "cart" class="cartIcon">shopping_cart</mat-icon>
+      <div class="cartCount">
+        <h3><strong>{{ service.cartSize }}</strong></h3>
+      </div>
   </div>
 </div>

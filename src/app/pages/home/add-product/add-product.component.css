@@ -11,3 +11,12 @@
 .form-group{
     margin: 10px;
 }
+
+.doAnimate{
+    animation-name: example;
+    animation-duration: 1s;
+}
+@keyframes example {
+    from {margin-left:-100%;}
+    to {margin-left: translate(20px);}
+}

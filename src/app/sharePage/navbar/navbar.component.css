@@ -22,9 +22,18 @@
     display: flex;
     margin: 20px;
     width: 60px;
-    justify-content: space-between;
 }
-
+.cartCount{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: lightblue;
+    padding: 8px;
+    border-radius: 20px;
+}
+.cartCount > h3{
+    margin-top: 16px;
+}
 .cartIcon{
     cursor: pointer;
 }

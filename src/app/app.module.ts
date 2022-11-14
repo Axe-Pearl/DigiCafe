@@ -11,6 +11,7 @@ import { CartComponent } from './pages/cart/cart.component';
 import { AddProductComponent } from './pages/home/add-product/add-product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -27,7 +28,8 @@ import { NgxPaginationModule } from 'ngx-pagination';
     AppRoutingModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]

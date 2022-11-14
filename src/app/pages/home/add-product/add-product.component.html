@@ -1,6 +1,6 @@
-<div [class.d-none] = "!isOpen" class="container-fuid">
+<div class="container-fuid" [ngClass]= "formClasses" >
     <h2>Add Product</h2>
-    <form [formGroup] = 'addProductForm' (ngSubmit) = "onSubmit()">
+    <form [formGroup] = 'addProductForm' (ngSubmit) = "onSubmit()" class="productForm">
       <div class="form-group">
         <label>Name of Cuisine</label>
         <input [class.is-invalid] = "addProductForm.get('foodName')?.invalid && addProductForm.get('foodName')?.touched" formControlName ="foodName" type="text" class="form-control">
@@ -20,8 +20,14 @@
       </div>
       <div class="form-group">
         <label>Image Url</label>
-        <input  (blur) = "validate()" [class.is-invalid] = "addProductForm.get('foodImg')?.invalid && addProductForm.get('foodImg')?.touched"  formControlName="foodImg" type="text" class="form-control">
+        <input (blur) = "validate(addProductForm.get('foodImg'))" [class.is-invalid] = "addProductForm.get('foodImg')?.invalid && addProductForm.get('foodImg')?.touched"  formControlName="foodImg" type="text" class="form-control">
+        <div *ngIf = "addProductForm.get('foodImg')?.touched" >
+          <!-- <small [class.d-none] = "addProductForm.get('foodPrice')?.errors?.[required']" class="text-danger">foodPrice is Required</small> -->
+          <span class="text-danger" *ngIf = "isValidImage == false;else elseBlock">Invalid Url</span>
+          <ng-template #elseBlock><mat-icon style="color:green;font-size: 20px;">check_circle</mat-icon>&nbsp;<span class="text-success" style="margin-top: -30px;">Valid Image Url</span></ng-template>
+        </div>
       </div>
+     
       <button [disabled] = "!this.addProductForm.valid" class="btn btn-success" type="submit">Add Product</button>
     </form>
 </div>
