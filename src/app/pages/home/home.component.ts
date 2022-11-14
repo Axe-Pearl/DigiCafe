@@ -14,6 +14,10 @@ export class HomeComponent implements OnInit {
   cartSize: number = 0;
   isModelOpen: boolean = false;
   variableBtn : string = 'ADD PRODUCT';
+  
+  totalRecords: string = '';
+  page: number = 1;
+
   AddToCart(id: number , index: number){
     this.service2.cartData.push(...this.service1.foodDetails.filter(food => food.id === id));
     this.service2.cartSize = this.service2.cartData.length;
@@ -21,6 +25,7 @@ export class HomeComponent implements OnInit {
   }
   ngOnInit(): void {
     this.foodData = this.service1.foodDetails;
+    this.totalRecords = this.foodData.length;
   }
   addProduct(){
     this.isModelOpen = !this.isModelOpen;
