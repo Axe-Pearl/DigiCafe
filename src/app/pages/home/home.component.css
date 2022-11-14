@@ -45,3 +45,8 @@ img{
     background-color: lightgreen;
     cursor: pointer;
 }
+
+.btn{
+    display: flex;
+    margin: 10px;
+}

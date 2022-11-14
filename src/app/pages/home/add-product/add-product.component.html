@@ -1,0 +1,27 @@
+<div [class.d-none] = "!isOpen" class="container-fuid">
+    <h2>Add Product</h2>
+    <form [formGroup] = 'addProductForm' (ngSubmit) = "onSubmit()">
+      <div class="form-group">
+        <label>Name of Cuisine</label>
+        <input [class.is-invalid] = "addProductForm.get('foodName')?.invalid && addProductForm.get('foodName')?.touched" formControlName ="foodName" type="text" class="form-control">
+        <div *ngIf ="addProductForm.get('foodName')?.invalid && addProductForm.get('foodName')?.touched">
+          <small *ngIf = "addProductForm.get('foodName')?.errors?.['required']" class="text-danger">Product name cannot be Empty</small>
+          <small *ngIf = "addProductForm.get('foodName')?.errors?.['minlength']" class="text-danger">Product Name must be alteast 3 charachters</small>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="">Description</label>
+        <input formControlName="foodDetails" type="text" class="form-control">
+      </div>
+      <div class="form-group">
+        <label for="">Price of Food</label>
+        <input [class.is-invalid] = "addProductForm.get('foodPrice')?.invalid && addProductForm.get('foodPrice')?.touched" formControlName="foodPrice" type="number" class="form-control" min= 0>
+        <small [class.d-none] = "addProductForm.get('foodPrice')?.valid || addProductForm.get('foodPrice')?.untouched" class="text-danger">foodPrice is Required</small>
+      </div>
+      <div class="form-group">
+        <label>Image Url</label>
+        <input  (blur) = "validateImg()" [class.is-invalid] = "addProductForm.get('foodImg')?.invalid && addProductForm.get('foodImg')?.touched"  formControlName="foodImg" type="text" class="form-control">
+      </div>
+      <button [disabled] = "!this.addProductForm.valid" class="btn btn-success" type="submit">Add Product</button>
+    </form>
+</div>

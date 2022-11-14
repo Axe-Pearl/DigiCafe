@@ -1,4 +1,6 @@
 <div class="productsContainer">
+  <button (click) = "addProduct()" class="btn btn-primary">{{ variableBtn }}</button>
+  <app-add-product [isOpen] = "isModelOpen"></app-add-product>
     <div class="product" *ngFor = "let p of foodData;let i = index">
        <div class="productImage">
         <img src= "{{  p.foodImg }}" alt="product1">
