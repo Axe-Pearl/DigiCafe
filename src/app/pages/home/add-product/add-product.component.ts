@@ -37,7 +37,7 @@ export class AddProductComponent implements OnInit {
   }
   
   onSubmit(){
-    this.arr = {...this.addProductForm.value, id:this.service.foodDetails.length };
+    this.arr = {...this.addProductForm.value, id:this.service.foodDetails.length + 1 };
     this.service.foodDetails.push(this.arr);
     localStorage.setItem('data',JSON.stringify(this.service.foodDetails))
     console.log(this.service.foodDetails);

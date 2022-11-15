@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -12,6 +12,8 @@ import { AddProductComponent } from './pages/home/add-product/add-product.compon
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatIconModule } from '@angular/material/icon';
+import { TableComponent } from './pages/table/table.component';
+import { FoodFilter } from './food-filter.pipe';
 
 @NgModule({
   declarations: [
@@ -21,6 +23,8 @@ import { MatIconModule } from '@angular/material/icon';
     HomeComponent,
     CartComponent,
     AddProductComponent,
+    TableComponent,
+    FoodFilter
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,8 @@ import { MatIconModule } from '@angular/material/icon';
     BrowserAnimationsModule,
     HttpClientModule,
     NgxPaginationModule,
-    MatIconModule
+    MatIconModule,
+    FormsModule    
   ],
   providers: [],
   bootstrap: [AppComponent]

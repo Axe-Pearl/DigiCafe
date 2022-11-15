@@ -21,7 +21,15 @@
 .cartSection{
     display: flex;
     margin: 20px;
-    width: 60px;
+    width: 500px;
+}
+.searchBox{
+    margin-right:20px;
+    margin-top: -5px;
+}
+.nav-link{
+    margin-right:20px;
+    margin-top: -5px;
 }
 .cartCount{
     display: flex;

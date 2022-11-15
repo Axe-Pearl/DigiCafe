@@ -1,15 +1,25 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class OrderDetailsService {
 
   constructor() { }
 
 
- foodDetails = this.getMyDefaultData();
+  // private realtime = new BehaviorSubject<any>(null);
+   
+  // realTimeDataIs = this.realtime.asObservable();
 
+  // setDataToRealtime(data:any){
+  //   this.realtime.next(data)
+  // }
+
+ foodDetails = this.getMyDefaultData();
+ searchedFood: string  = '';
  getMyDefaultData(){
   try {
     return JSON.parse(localStorage.getItem('data')?.toString()||'')

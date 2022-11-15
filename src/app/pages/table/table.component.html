@@ -1,0 +1,19 @@
+<h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif; margin:10px 0;text-align: center;text-decoration: underline;">Food Menu</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">Cuisine ID</th>
+            <th scope="col">Cuisine Name</th>
+            <th scope="col">Cuisine Description</th>
+            <th scope="col">Price</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let food of this.service.foodDetails">
+            <th scope="row">{{ food.id }}</th>
+            <td>{{ food.foodName }}</td>
+            <td style="word-wrap: break-word;min-width: 130px;max-width: 140px;">{{ food.foodDetails }}</td>
+            <td>₹ {{ food.foodPrice }}</td>
+        </tr>
+    </tbody>
+</table>

@@ -1,10 +1,20 @@
 <div class="headerContainer">
   <div class="headerTitle">
-   <h1>Digi Cafe</h1>
+   <h1 routerLink = "/" style="cursor:pointer;">Digi Cafe</h1>
    <p>Food to Fix the Bugs</p>
   </div>
+  
   <div class="cartSection">
-       <mat-icon  routerLink = "cart" class="cartIcon">shopping_cart</mat-icon>
+    <div class="searchBox">
+      <div class="input-group rounded">
+        <input [(ngModel)] = "searchedFood" (change) = "searchTarget()" type="search" class="form-control rounded" placeholder="Search" aria-label="Search" aria-describedby="search-addon" />
+        {{ searchedFood }}
+      </div>
+    </div>
+    <div class="nav-link">
+      <button routerLink = "/table" class="btn btn-primary">Table Ahead</button>
+    </div>
+    <mat-icon  routerLink = "cart" class="cartIcon">shopping_cart</mat-icon>
       <div class="cartCount">
         <h3><strong>{{ service.cartSize }}</strong></h3>
       </div>
