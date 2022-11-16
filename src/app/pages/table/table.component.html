@@ -1,19 +1,35 @@
-<h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif; margin:10px 0;text-align: center;text-decoration: underline;">Food Menu</h2>
-<table class="table">
+<h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif; margin:10px 0;text-align: center;text-decoration: underline;" [class.doBlur] = "isModelOpen">Food Menu</h2>
+<div class="addBtnContainer"> 
+    <button (click) = "addProduct()" class="btn btn-primary">{{ variableBtn }}</button>
+</div>
+<app-add-product [isOpen] = "isModelOpen" (addEvent) = "totalRecords = $event.length; isModelOpen = $event.modelOpen"></app-add-product>
+<table class="table" [class.doBlur] = "isModelOpen">
     <thead>
         <tr>
             <th scope="col">Cuisine ID</th>
             <th scope="col">Cuisine Name</th>
             <th scope="col">Cuisine Description</th>
             <th scope="col">Price</th>
+            <th scope="col"> Delete </th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor = "let food of this.service.foodDetails">
+        <tr *ngFor = "let food of this.service.foodDetails | foodFilter: this.service.searchedFood |
+        paginate : 
+        {id: 'listing_pagination',
+        itemsPerPage: 4,
+        currentPage: page,
+        totalItems: this.service.foodDetails.length
+        }"
+         >
             <th scope="row">{{ food.id }}</th>
             <td>{{ food.foodName }}</td>
             <td style="word-wrap: break-word;min-width: 130px;max-width: 140px;">{{ food.foodDetails }}</td>
             <td>₹ {{ food.foodPrice }}</td>
+            <td><i class="material-icons" style="cursor: pointer;color: red;" (click) = "onDelete(food.id)">delete</i></td>
         </tr>
     </tbody>
 </table>
+<div >
+    <pagination-controls id="listing_pagination"  (pageChange)="page = $event" ></pagination-controls>
+</div>

@@ -8,7 +8,7 @@ import { FooterComponent } from './sharePage/footer/footer.component';
 import { NavbarComponent } from './sharePage/navbar/navbar.component';
 import { HomeComponent } from './pages/home/home.component';
 import { CartComponent } from './pages/cart/cart.component';
-import { AddProductComponent } from './pages/home/add-product/add-product.component';
+import { AddProductComponent } from './pages/table/add-product/add-product.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { MatIconModule } from '@angular/material/icon';

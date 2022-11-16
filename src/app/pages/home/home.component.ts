@@ -16,7 +16,6 @@ export class HomeComponent implements OnInit {
   foodData: any;
   cartSize: number = 0;
   isModelOpen: boolean = false;
-  variableBtn : string = 'ADD PRODUCT';
   totalRecords: string = '';
   page: number = 1;
   // searchFoodVal:string = ""
@@ -24,12 +23,8 @@ export class HomeComponent implements OnInit {
     this.service2.cartData.push(...this.service1.foodDetails.filter((food:any) => food.id === id));
     this.service2.cartSize = this.service2.cartData.length;
     this.cartSize = this.service2.cartSize;
-  }
+   }
   ngOnInit(): void {
     this.foodData = this.service1.foodDetails;
-  }
-  addProduct(){
-    this.isModelOpen = !this.isModelOpen;
-    this.isModelOpen ? this.variableBtn = "Cancel" : this.variableBtn = "ADD PRODUCT";
   }
 }

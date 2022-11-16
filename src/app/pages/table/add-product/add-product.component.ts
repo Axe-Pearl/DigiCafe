@@ -21,7 +21,7 @@ export class AddProductComponent implements OnInit {
   addProductForm = this.fb.group({
     foodName: ['', [Validators.required, Validators.minLength(3)]],
     foodDetails: ['',[Validators.required]],
-    foodPrice: [0 , [Validators.required]],
+    foodPrice: [ , [Validators.required]],
     foodImg: ['', [Validators.required]]
   })
   ngOnInit(): void {
@@ -32,6 +32,8 @@ export class AddProductComponent implements OnInit {
     "doAnimate": this.isOpen
   }
   ngOnChanges(changes: SimpleChanges): void{
+    console.log("Model Open", this.isOpen, this.service.isModelOpen);
+    
      this.formClasses['d-none'] = !this.isOpen;
      this.formClasses['doAnimate'] = this.isOpen;
   }
@@ -41,7 +43,8 @@ export class AddProductComponent implements OnInit {
     this.service.foodDetails.push(this.arr);
     localStorage.setItem('data',JSON.stringify(this.service.foodDetails))
     console.log(this.service.foodDetails);
-    this.addEvent.emit(this.service.foodDetails.length);
+    this.addEvent.emit({length: this.service.foodDetails.length, modelOpen: false });
+    this.service.isModelOpen = false;
   }
   validate(url: any){
     console.log(url.value);

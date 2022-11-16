@@ -6,3 +6,9 @@ td{
     color: green;
     font-weight: 450;
 }
+.addBtnContainer{
+    display: flex;
+    width: 100%;
+    justify-content:flex-end;
+    padding: 20px 50px;
+}

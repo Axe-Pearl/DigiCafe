@@ -1,5 +1,5 @@
 <div class="container-fuid" [ngClass]= "formClasses" >
-    <h2>Add Product</h2>
+    <h2 style="color:green;font-family:Arial, Helvetica, sans-serif;">Add Product</h2>
     <form [formGroup] = 'addProductForm' (ngSubmit) = "onSubmit()" class="productForm">
       <div class="form-group">
         <label>Name of Cuisine</label>
@@ -10,24 +10,28 @@
         </div>
       </div>
       <div class="form-group">
-        <label for="">Description</label>
+        <label for="">Description <small style="color:gray">(optional)</small> </label>
         <input formControlName="foodDetails" type="text" class="form-control">
       </div>
       <div class="form-group">
         <label for="">Price of Food</label>
         <input [class.is-invalid] = "addProductForm.get('foodPrice')?.invalid && addProductForm.get('foodPrice')?.touched" formControlName="foodPrice" type="number" class="form-control" min= 0>
-        <small [class.d-none] = "addProductForm.get('foodPrice')?.valid || addProductForm.get('foodPrice')?.untouched" class="text-danger">foodPrice is Required</small>
+        <small [class.d-none] = "addProductForm.get('foodPrice')?.valid || addProductForm.get('foodPrice')?.untouched" class="text-danger">Food Price is Required</small>
       </div>
       <div class="form-group">
         <label>Image Url</label>
         <input (blur) = "validate(addProductForm.get('foodImg'))" [class.is-invalid] = "addProductForm.get('foodImg')?.invalid && addProductForm.get('foodImg')?.touched"  formControlName="foodImg" type="text" class="form-control">
         <div *ngIf = "addProductForm.get('foodImg')?.touched" >
-          <!-- <small [class.d-none] = "addProductForm.get('foodPrice')?.errors?.[required']" class="text-danger">foodPrice is Required</small> -->
           <span class="text-danger" *ngIf = "isValidImage == false;else elseBlock">Invalid Url</span>
-          <ng-template #elseBlock><mat-icon style="color:green;font-size: 20px;">check_circle</mat-icon>&nbsp;<span class="text-success" style="margin-top: -30px;">Valid Image Url</span></ng-template>
+          <ng-template #elseBlock>
+            <div class="validMessage">
+              <mat-icon style="color:green;font-size: 20px;">check_circle</mat-icon>&nbsp;
+              <span class="text-success">Valid Image Url</span>
+            </div>
+          </ng-template>
         </div>
       </div>
      
-      <button [disabled] = "!this.addProductForm.valid" class="btn btn-success" type="submit">Add Product</button>
+      <button [disabled] = "!this.addProductForm.valid" class="btn btn-success" style = "margin-top: 10px;" type="submit">Add Product</button>
     </form>
 </div>

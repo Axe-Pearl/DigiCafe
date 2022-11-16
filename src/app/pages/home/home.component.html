@@ -1,7 +1,5 @@
-<div class="productsContainer">
-  <button (click) = "addProduct()" class="btn btn-primary">{{ variableBtn }}</button>
-  <app-add-product [isOpen] = "isModelOpen" (addEvent) = "totalRecords = $event"></app-add-product>
-    <div class="product" *ngFor = "let p of ( foodData | foodFilter: this.service1.searchedFood ) |
+<div class="productsContainer" [class.doBlur] = "isModelOpen">
+    <div class="product" *ngFor = "let p of  foodData | foodFilter: this.service1.searchedFood  |
     paginate : 
     {id: 'listing_pagination',
     itemsPerPage: 2,

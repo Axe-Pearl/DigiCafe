@@ -20,6 +20,7 @@ export class OrderDetailsService {
 
  foodDetails = this.getMyDefaultData();
  searchedFood: string  = '';
+ isModelOpen: boolean = false;
  getMyDefaultData(){
   try {
     return JSON.parse(localStorage.getItem('data')?.toString()||'')

@@ -1,4 +1,4 @@
 
-<app-navbar></app-navbar>
+<app-navbar [class.doBlur] = "this.service.isModelOpen"></app-navbar>
 <router-outlet></router-outlet>
-<app-footer></app-footer> 
+<app-footer [class.doBlur] = "this.service.isModelOpen"></app-footer> 
